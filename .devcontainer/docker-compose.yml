@@ -29,7 +29,7 @@ services:
       - db
 
     environment:
-      DB_PASSWORD: password
+      MYAPP_DATABASE_PASSWORD: password
 
   db:
     image: postgres

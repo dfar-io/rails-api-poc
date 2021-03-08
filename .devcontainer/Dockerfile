@@ -17,3 +17,6 @@ RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSI
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
+
+# Install Heroku CLI
+RUN sudo wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
