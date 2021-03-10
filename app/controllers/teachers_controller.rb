@@ -1,5 +1,7 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :update, :destroy]
+  skip_before_action :verify_authenticity_token 
+  skip_before_action :authorize_request, only: :index
 
   # GET /teachers
   def index

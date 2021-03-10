@@ -1,24 +1,27 @@
-# README
+# rails-api-poc
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a proof of concept on setting up a Ruby on Rails API.
 
-Things you may want to cover:
+## Sign up user
 
-* Ruby version
+To sign up a user, send the following payload to `/signup`:
 
-* System dependencies
+```
+{
+    "name" : "NAME",
+    "email" : "EMAIL",
+    "password" : "PASSWORD"
+}
+```
 
-* Configuration
+This user will be able to perform POST, PUT, PATCH, and DELETE commands using
+the auth token provided.
 
-* Database creation
+To login, use the following payload on `/login`:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+{
+    "email" : "YOUR_EMAIL",
+    "password" : "YOUR_PASSWORD"
+}
+```
