@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Teacher.create(name: 'Elva D. George', subject: 'Math');
-Teacher.create(name: 'Jaime R. Brown', subject: 'Science');
-Teacher.create(name: 'Ethel J. Holloway', subject: 'Gym');
+Teacher.delete_all
+
+Teacher.create(name: 'Elva D. George', shortName: 'Elva');
+Teacher.create(name: 'Jaime R. Brown', shortName: 'Jaime');
+Teacher.create(name: 'Ethel J. Holloway', shortName: 'Ethel');
+
+TeacherClass.create(teacher: Teacher.first)
+TeacherClass.create(teacher: Teacher.first)
+TeacherClass.create(teacher: Teacher.first)
+TeacherClass.create(teacher: Teacher.first)

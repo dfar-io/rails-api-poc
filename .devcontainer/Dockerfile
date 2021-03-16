@@ -20,3 +20,6 @@ RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSI
 
 # Install Heroku CLI
 RUN sudo wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+# Install psql
+RUN sudo apt-get update && sudo apt-get install postgresql-client

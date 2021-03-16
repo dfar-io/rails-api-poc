@@ -3,51 +3,27 @@ class TeachersController < ApplicationController
   skip_before_action :verify_authenticity_token 
   skip_before_action :authorize_request, only: :index
 
-  # GET /teachers
+  # GET /teacher
   def index
-    @teachers = Teacher.all
+    teacher = Teacher.all.sample
 
-    render json: @teachers
-  end
+    object = OpenStruct.new
+    object.id = teacher.id
+    object.name = teacher.name
+    object.shortName = teacher.shortName
+    object.classes = (object.id+200..object.id+205).to_a
 
-  # GET /teachers/1
-  def show
-    render json: @teacher
-  end
-
-  # POST /teachers
-  def create
-    @teacher = Teacher.new(teacher_params)
-
-    if @teacher.save
-      render json: @teacher, status: :created, location: @teacher
-    else
-      render json: @teacher.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /teachers/1
-  def update
-    if @teacher.update(teacher_params)
-      render json: @teacher
-    else
-      render json: @teacher.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /teachers/1
-  def destroy
-    @teacher.destroy
+    render json: {
+      id: object.id,
+      name: object.name,
+      shortName: object.shortName,
+      classes: object.classes
+    }
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_teacher
-      @teacher = Teacher.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def teacher_params
-      params.require(:teacher).permit(:name, :subject)
+      params.require(:teacher).permit(:name)
     end
 end
